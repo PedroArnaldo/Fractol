@@ -6,7 +6,7 @@
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 11:57:24 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/10/29 11:18:11 by parnaldo         ###   ########.fr       */
+/*   Updated: 2022/10/29 13:24:14 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,18 +53,19 @@ void	check_arg(int argc, char **argv, t_fractol *fractol, int len)
 		error();
 		exit(1);
 	}
-	if (ft_strnstr(argv[1], "burningship", 11) && argc == 2)
+	if (ft_strncmp(argv[1], "burningship", 11) && argc == 2 &&
+			ft_strncmp(argv[1], "burningship", 11) == 0)
 	{
 		start_fractol(fractol);
 		fractol->type = 2;
 		draw(fractol);
 	}
-	else if (ft_strnstr(argv[1], "mandelbrot", 10) && argc == 2)
+	else if (ft_strncmp(argv[1], "mandelbrot", 10) && argc == 2)
 	{
 		start_fractol(fractol);
 		draw(fractol);
 	}
-	else if (ft_strnstr(argv[1], "julia", 5) && argc == 3)
+	else if (ft_strncmp(argv[1], "julia", 5) && argc == 3)
 	{
 		check_julia(argv, fractol);
 	}

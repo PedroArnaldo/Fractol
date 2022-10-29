@@ -6,7 +6,7 @@
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 11:15:18 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/10/29 10:44:07 by parnaldo         ###   ########.fr       */
+/*   Updated: 2022/10/29 13:21:17 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	error(void)
 {
 	ft_printf("Invalid Argument\n");
 	ft_printf("To run the program:\n");
-	ft_printf("./fractol mondelbrot or");
-	ft_printf("./fractol julia number -> (range 1 to 4)\n");
+	ft_printf("./fractol mandelbrot, ");
+	ft_printf("./fractol julia number -> (range 1 to 4) or ");
+	ft_printf("./fractol burningship\n");
 }
