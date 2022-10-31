@@ -35,6 +35,7 @@ void	check_julia(char **argv, t_fractol *fractol)
 	julia_set = ft_atoi(argv[2]);
 	if (julia_set >= 1 && julia_set <= 4)
 	{
+		ft_printf("julia");
 		start_fractol(fractol);
 		fractol->type = 1;
 		julia_define(fractol, ft_atoi(argv[2]));
@@ -46,26 +47,22 @@ void	check_julia(char **argv, t_fractol *fractol)
 	}
 }
 
-void	check_arg(int argc, char **argv, t_fractol *fractol, int len)
+void	check_arg(int argc, char **argv, t_fractol *fractol)
 {
-	if (len != 10 && len != 5 && len != 11)
+	if ( argc == 2 && !ft_strncmp(argv[1], "burningship", 12))
 	{
-		error();
-		exit(1);
-	}
-	if (ft_strncmp(argv[1], "burningship", 11) && argc == 2 &&
-			ft_strncmp(argv[1], "burningship", 11) == 0)
-	{
+		ft_printf("burninship");
 		start_fractol(fractol);
 		fractol->type = 2;
 		draw(fractol);
 	}
-	else if (ft_strncmp(argv[1], "mandelbrot", 10) && argc == 2)
+	else if (!ft_strncmp(argv[1], "mandelbrot", 11) && argc == 2)
 	{
+		ft_printf("mandelbrot");
 		start_fractol(fractol);
 		draw(fractol);
 	}
-	else if (ft_strncmp(argv[1], "julia", 5) && argc == 3)
+	else if (!ft_strncmp(argv[1], "julia", 6) && argc == 3)
 	{
 		check_julia(argv, fractol);
 	}
@@ -79,15 +76,13 @@ void	check_arg(int argc, char **argv, t_fractol *fractol, int len)
 int	main(int argc, char **argv)
 {
 	t_fractol	fractol;
-	int			len;
 
 	if (argc < 2)
 	{
 		error();
 		exit(1);
 	}
-	len = ft_strlen(argv[1]);
-	check_arg(argc, argv, &fractol, len);
+	check_arg(argc, argv, &fractol);
 	menu();
 	mlx_hook(fractol.win, 2, 0, key_event, &fractol);
 	mlx_hook(fractol.win, 17, 0, close_win_mouse, &fractol);

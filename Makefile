@@ -37,22 +37,23 @@ INC_LIBFT = -I. -I$(LIBFT_DIR)
 
 detected_OS := $(shell uname)
 ifeq ($(detected_OS),Linux)
-$(NAME): $(OBJS) $(LIBFT)
+$(NAME):  $(OBJS) $(LIBFT)
+	@echo "Compilation of ${}$(NAME) $()..."
 	@$(MAKE) -C mlx_linux all
 	@cp ./mlx_linux/libmlx.a .
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(INC_LIBFT) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 ##instruções para linux
 else
-$(NAME): $(OBJS) $(LIBFT)
-	@$(MAKE) -C mlx all
-	@cp ./mlx/libmlx.a .
-	@$(CC) $(CFLAGS) -g -o $(NAME) $(OBJS) $(LIBFT) $(INC_LIBFT) -Lmlx -lmlx  -framework OpenGL -framework AppKit
-	@echo "Compilation fractol"
+$(NAME): @ $(OBJS) $(LIBFT)
+	@ $(MAKE) -C mlx all
+	@ cp ./mlx/libmlx.a .
+	@ $(CC) $(CFLAGS) -g -o $(NAME) $(OBJS) $(LIBFT) $(INC_LIBFT) -Lmlx -lmlx  -framework OpenGL -framework AppKit
+	@ echo "Compilation fractol"
 ##instruções para mac
 endif
 
 $(LIBFT):
-		@$(MAKE) -C $(LIBFT_DIR)
+		@ $(MAKE) -C $(LIBFT_DIR)
 
 all: $(NAME)
 
