@@ -22,7 +22,8 @@ SRC =  main.c \
 	   paint.c \
 	   mandelbrot.c \
 	   message.c \
-	   burningship.c
+	   burningship.c \
+	   ft_atod.c
 
 OBJS = $(SRC:.c=.o)
 
@@ -59,6 +60,7 @@ all: $(NAME)
 
 clean:
 	$(MAKE) -C mlx clean
+	$(MAKE) -C mlx_linux clean
 	$(MAKE) -C $(LIBFT_DIR) clean
 	$(RM) *.o
 

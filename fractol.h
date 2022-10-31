@@ -72,5 +72,6 @@ void	draw(t_fractol *fractol);
 void	menu(void);
 void	error(void);
 void	burningship_set(t_fractol *fractol, int x, int y, t_data data);
+double	ft_atod(const char *str);
 
 #endif
