@@ -29,6 +29,11 @@ static void	start_fractol(t_fractol *fractol)
 	fractol->win = mlx_new_window(fractol->mlx, WIDTH, HEIGHT, "fract-ol");
 }
 
+//static void check_julia_args(char **argv)
+//{
+	
+//}
+
 static void	check_julia(char **argv, t_fractol *fractol, int argc)
 {
 	int	julia_set;
@@ -94,8 +99,9 @@ int	main(int argc, char **argv)
 		error();
 		exit(1);
 	}
-	printf("double: %d\n", argc);
+	printf("double: %d\n", ft_isdigit('3'));
 	check_arg(argc, argv, &fractol);
+	mlx_string_put(fractol.mlx, fractol.win, 6, 15, 16777215, "Teste texto");
 	menu();
 	mlx_hook(fractol.win, 2, 0, key_event, &fractol);
 	mlx_hook(fractol.win, 17, 0, close_win_mouse, &fractol);
